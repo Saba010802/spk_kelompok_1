@@ -85,7 +85,33 @@
 
                                </div> {{--end col md 6 --}}
 
-                             </div> {{--end 2nd row --}}      
+                             </div> {{--end 2nd row --}}  
+
+
+                             <div class="row"> {{--first 3nd row --}}
+                              <div class="col-md-6">
+
+                                <div class="form-group">
+                                  <h5>Nama wali <span class="text-danger">*</span></h5>
+                                  <div class="controls">
+                                      <input type="text" name="nama_wali" class="form-control" required="" value="{{ $alldata->nama_wali}}">
+                                  </div>
+                                </div>
+
+                               </div> {{--end col md 6 --}}
+
+                               <div class="col-md-6">
+
+                                <div class="form-group">
+                                  <h5>Penghasilan wali <span class="text-danger">*</span></h5>
+                                  <div class="controls">
+                                      <input type="text" name="penghasilan_wali" class="form-control" required="" value="{{ $alldata->penghasilan_wali}}">
+                                  </div>
+                                </div>
+
+                               </div> {{--end col md 6 --}}
+
+                             </div> {{--end 3nd row --}}   
 
                            <div class="text-xs-right">
                                <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit" >

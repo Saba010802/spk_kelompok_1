@@ -66,10 +66,18 @@
                       </tfoot>
                     </table>
 
+                    @php
+                        $mapel = App\Models\SchoolSubject::all();
+                        $totalMapel = count($mapel);
+                        $NilaiMapel = App\Models\NilaiSiswa::select('nilai_mapel')->where('siswa_id', $detail->siswa_id)->sum('nilai_mapel');
+
+                        $nilaiKeaktifan = App\Models\NilaiSiswa::select('nilai_keaktifan')->where('siswa_id', $detail->siswa_id)->sum('nilai_keaktifan')
+                    @endphp
+
                     <div class="with-border">
 
-                        <h5 class="box-title">Rata - rata nilai Mata pelajaran : </h3> <br>
-                        <h5 class="box-title">Rata - rata nilai keaktifan : </h3>
+                        <h5 class="box-title">Rata - rata Mata pelajaran : {{ $NilaiMapel/$totalMapel }}</h3> <br>
+                        <h5 class="box-title">Rata - rata Keaktifan : {{ $nilaiKeaktifan/$totalMapel }}</h3>
 
                     </div>
 

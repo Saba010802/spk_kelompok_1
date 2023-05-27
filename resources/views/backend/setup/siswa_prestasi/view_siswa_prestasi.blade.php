@@ -26,8 +26,8 @@
 
        <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"> Nilai Siswa</h3>
-            <a href="{{ route('add.nilai.siswa') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add nilai </a>
+            <h3 class="box-title"> Daftar Siswa</h3>
+            {{-- <a href="{{ route('add.siswa') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add data </a> --}}
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -37,28 +37,27 @@
                       <tr>
                           <th width="5%">No</th>
                           <th>Name</th>
-                          <th>Kelas</th>
                           <th>jurusan</th>
-                          <th width="35%">Action</th>
+                          
+                          <th width="25%">Action</th>
                           
                       </tr>
                   </thead>
                   <tbody>
-                    @foreach ($Alldata as $key => $nilai)
+                    {{-- @foreach ($alldata as $key => $siswa)
                       <tr>
                           <td>{{ $key+1 }}</td>
-                          <td>{{ $nilai['siswa']['nama'] }}</td>
-                          <td>{{ $nilai['siswa']['kelas'] }}</td>
-                          <td>{{ $nilai['siswa']['jurusan']}}</td>
-
+                          <td>{{ $siswa->nama }}</td>
+                          <td>{{ $siswa->jenis_kelamin }}</td>
+                          <td>{{ $siswa->kelas }}</td>
+                          <td>{{ $siswa->jurusan }}</td>
                           <td>
-                            <a href="{{ route('nilai.siswa.edit',$nilai->siswa_id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ route('nilai.siswa.details',$nilai->siswa_id) }}" class="btn btn-primary">Detail</a>
-                            <a href="{{ route('data.siswa.delete',$nilai->siswa_id) }}" class="btn btn-danger" id="delete">Delete</a>
+                            <a href="{{ route('data.siswa.edit',$siswa->id) }}" class="btn btn-info">Edit</a>
+                            <a href="{{ route('data.siswa.delete',$siswa->id) }}" class="btn btn-danger" id="delete">Delete</a>
                           </td>
                           
                       </tr>
-                    @endforeach
+                    @endforeach --}}
                   </tbody>
                   <tfoot>
                       

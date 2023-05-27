@@ -15,8 +15,8 @@ $route = Route::current()->getName();
 				 <a href="/dashboard">
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
-						  <img src="{{ asset('backend/images/logo-dark.png') }}" alt="">
-						  <h3><b>School</b> Admin</h3>
+						  {{-- <img src="{{ asset('backend/images/smancar.png') }}" alt="" style="width: 90px; width: 90px; "> --}}
+						  <h3><b>school </b> </h3>
 					 </div>
 				</a>
 			</div>
@@ -73,6 +73,7 @@ $route = Route::current()->getName();
             <li><a href="{{ route('siswa') }}"><i class="ti-more"></i>Siswa</a></li>
             <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Mata Pelajaran </a></li>
             <li><a href="{{ route('nilai.siswa.view') }}"><i class="ti-more"></i>Nilai siswa</a></li>
+            <li><a href="{{ route('siswa.view.prestasi') }}"><i class="ti-more"></i>Siswa Prestasi</a></li>
             
             <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
             <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
@@ -123,7 +124,7 @@ $route = Route::current()->getName();
         </li>
 			  
 		 
-        <li class="header nav-small-cap">User Interface</li>
+        {{-- <li class="header nav-small-cap">User Interface</li>
 		  
         <li class="treeview">
           <a href="#">
@@ -139,7 +140,7 @@ $route = Route::current()->getName();
             
           </ul>
         </li>
-		
+		 --}}
         </li>  
 		  
         
@@ -148,10 +149,6 @@ $route = Route::current()->getName();
 	
 	<div class="sidebar-footer">
 		<!-- item-->
-		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
-		<!-- item-->
-		<a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
-		<!-- item-->
-		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
+	
 	</div>
   </aside>

@@ -27,6 +27,8 @@ class SiswaController extends Controller
         $data->jenis_kelamin = $request->jenis_kelamin;
         $data->kelas = $request->kelas;
         $data->jurusan = $request->jurusan;
+        $data->nama_wali = $request->nama_wali;
+        $data->penghasilan_wali = $request->penghasilan_wali;
         $data->save();
 
         $notification = array(
@@ -52,6 +54,9 @@ class SiswaController extends Controller
         $data->jenis_kelamin = $request->jenis_kelamin;
         $data->kelas = $request->kelas;
         $data->jurusan = $request->jurusan;
+        $data->nama_wali = $request->nama_wali;
+        $data->penghasilan_wali = $request->penghasilan_wali;
+        
         $data->save();
 
         $notification = array(

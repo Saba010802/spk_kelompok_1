@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 
 class NilaiSiswaController extends Controller
 {
+    //siswa prestasi
+    public function ViewSiswaPrestasi()
+    {
+        return view('backend.setup.siswa_prestasi.view_siswa_prestasi');
+    }
+
     public function ViewNilai()
     {
         //$data['Alldata'] = NilaiSiswa::all();
@@ -53,7 +59,13 @@ class NilaiSiswaController extends Controller
 
     public function DetailsNilai($siswa_id)
     {
+        $data['details'] = NilaiSiswa::where('siswa_id', $siswa_id)->first();
         $data['details'] = NilaiSiswa::where('siswa_id', $siswa_id)->orderBy('subject_id', 'asc')->get();
         return view('backend.setup.nilai_siswa.details_nilai', $data);
+    }
+
+    public function EditNilai($siswa_id)
+    {
+        return view('backend.setup.nilai_siswa.edit_nilai');
     }
 }
