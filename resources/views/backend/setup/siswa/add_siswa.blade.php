@@ -31,6 +31,11 @@
                                   <h5>Nama <span class="text-danger">*</span></h5>
                                   <div class="controls">
                                       <input type="text" name="nama" class="form-control" required="">
+
+                                    @error('nama')
+                                      <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+
                                   </div>
                                 </div>
 
@@ -63,6 +68,11 @@
                                   <h5>Kelas <span class="text-danger">*</span></h5>
                                   <div class="controls">
                                       <input type="text" name="kelas" class="form-control" required="">
+
+                                      @error('kelas')
+                                      <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+
                                   </div>
                                 </div>
 
@@ -94,6 +104,11 @@
                                   <h5>Nama wali <span class="text-danger">*</span></h5>
                                   <div class="controls">
                                       <input type="text" name="nama_wali" class="form-control" required="">
+
+                                      @error('nama_wali')
+                                        <span class="text-danger">{{ $message }}</span>
+                                      @enderror
+
                                   </div>
                                 </div>
 
@@ -105,6 +120,11 @@
                                   <h5>Penghasilan wali <span class="text-danger">*</span></h5>
                                   <div class="controls">
                                       <input type="text" name="penghasilan_wali" class="form-control" required="">
+
+                                      @error('penghasilan_wali')
+                                      <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+
                                   </div>
                                 </div>
 

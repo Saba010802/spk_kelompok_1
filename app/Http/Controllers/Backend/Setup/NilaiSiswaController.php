@@ -61,7 +61,8 @@ class NilaiSiswaController extends Controller
     {
         $data['details'] = NilaiSiswa::where('siswa_id', $siswa_id)->first();
         $data['details'] = NilaiSiswa::where('siswa_id', $siswa_id)->orderBy('subject_id', 'asc')->get();
-        return view('backend.setup.nilai_siswa.details_nilai', $data);
+        //dd($data);
+         return view('backend.setup.nilai_siswa.details_nilai', $data);
     }
 
     public function EditNilai($siswa_id)

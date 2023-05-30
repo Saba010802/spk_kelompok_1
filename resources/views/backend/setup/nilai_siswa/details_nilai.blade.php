@@ -71,7 +71,7 @@
                         $totalMapel = count($mapel);
                         $NilaiMapel = App\Models\NilaiSiswa::select('nilai_mapel')->where('siswa_id', $detail->siswa_id)->sum('nilai_mapel');
 
-                        $nilaiKeaktifan = App\Models\NilaiSiswa::select('nilai_keaktifan')->where('siswa_id', $detail->siswa_id)->sum('nilai_keaktifan')
+                        $nilaiKeaktifan = App\Models\NilaiSiswa::select('nilai_keaktifan')->where('siswa_id', $detail->siswa_id)->sum('nilai_keaktifan');
                     @endphp
 
                     <div class="with-border">

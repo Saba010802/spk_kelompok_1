@@ -70,10 +70,11 @@ $route = Route::current()->getName();
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{ route('bobot') }}"><i class="ti-more"></i>Bobot</a></li>
             <li><a href="{{ route('siswa') }}"><i class="ti-more"></i>Siswa</a></li>
             <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Mata Pelajaran </a></li>
             <li><a href="{{ route('nilai.siswa.view') }}"><i class="ti-more"></i>Nilai siswa</a></li>
-            <li><a href="{{ route('siswa.view.prestasi') }}"><i class="ti-more"></i>Siswa Prestasi</a></li>
+            <li><a href="{{ route('siswa.view.prestasi') }}"><i class="ti-more"></i>Siswa Prestasi</a></li> 
             
             <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
             <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
@@ -90,7 +91,7 @@ $route = Route::current()->getName();
         </li>
 
 
-        <li class="treeview {{ ($prefix == '/students')? 'active':'' }}">
+        {{-- <li class="treeview {{ ($prefix == '/students')? 'active':'' }}">
           <a href="#">
             <i data-feather="briefcase"></i> <span>Setudent Management</span>
             <span class="pull-right-container">
@@ -121,7 +122,7 @@ $route = Route::current()->getName();
             <li><a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Employee Attendance</a></li>
             <li><a href="{{ route('employee.monthly.salary') }}"><i class="ti-more"></i>Employee Monthly Salary</a></li>
           </ul>
-        </li>
+        </li> --}}
 			  
 		 
         {{-- <li class="header nav-small-cap">User Interface</li>

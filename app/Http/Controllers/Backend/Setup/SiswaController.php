@@ -22,6 +22,13 @@ class SiswaController extends Controller
 
     public function StoreSiswa(Request $request)
     {
+
+        $this->validate($request, [
+            'penghasilan_wali' => 'numeric',
+        ], $message = [
+            'penghasilan_wali.numeric' => 'Masukan Angka!',
+        ]);
+
         $data = new Siswa();
         $data->nama = $request->nama;
         $data->jenis_kelamin = $request->jenis_kelamin;
@@ -48,6 +55,12 @@ class SiswaController extends Controller
 
     public function UpdateSiswa(Request $request, $id)
     {
+        $this->validate($request, [
+            'penghasilan_wali' => 'numeric',
+        ], $message = [
+            'penghasilan_wali' => 'Masukan Angka!',
+        ]);
+
         $data = Siswa::find($id);
 
         $data->nama = $request->nama;

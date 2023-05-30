@@ -106,6 +106,11 @@
                                   <h5>Penghasilan wali <span class="text-danger">*</span></h5>
                                   <div class="controls">
                                       <input type="text" name="penghasilan_wali" class="form-control" required="" value="{{ $alldata->penghasilan_wali}}">
+
+                                      @error('penghasilan_wali')
+                                      <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+
                                   </div>
                                 </div>
 

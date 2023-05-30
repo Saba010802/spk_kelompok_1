@@ -25,6 +25,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
+use App\Http\Controllers\Backend\Setup\BobotMetodeController;
 use App\Http\Controllers\Backend\Setup\NilaiSiswaController;
 use App\Http\Controllers\Backend\Setup\SiswaController;
 use Illuminate\Support\Facades\Auth;
@@ -79,6 +80,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     //All Route Student Class
     Route::prefix('setup')->group(function () {
+        // BOBOT METODE
+        Route::get('/bobot/view', [BobotMetodeController::class, 'ViewBobot'])->name('bobot');
+        Route::get('/bobot/add', [BobotMetodeController::class, 'AddBobot'])->name('add.bobot');
+        Route::post('/bobot/store', [BobotMetodeController::class, 'StoreBobot'])->name('store.data.bobot');
+        Route::get('/bobot/add/{id}', [BobotMetodeController::class, 'EditBobot'])->name('data.bobot.edit');
+        Route::post('/bobot/update/{id}', [BobotMetodeController::class, 'UpdateBobot'])->name('update.data.bobot');
+        Route::get('/bobot/delete/{id}', [BobotMetodeController::class, 'DeleteBobot'])->name('data.bobot.delete');
+
 
         //siswa
         Route::get('/siswa/view', [SiswaController::class, 'ViewSiswa'])->name('siswa');
