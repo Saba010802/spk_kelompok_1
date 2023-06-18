@@ -30,7 +30,7 @@
                                 <div class="form-group">
                                   <h5>Nama <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="nama" class="form-control" required="">
+                                      <input type="text" name="nama" class="form-control" required="" value="{{ old('nama') }}">
 
                                     @error('nama')
                                       <span class="text-danger">{{ $message }}</span>
@@ -49,8 +49,8 @@
                           
                                       <select name="jenis_kelamin" id="gender" required="" class="form-control">
                                           <option value="" selected="" disabled="" >Select Gender</option>
-                                          <option value="Laki - Laki">Laki - Laki</option>
-                                          <option value="Perempuan">Perempuan</option>
+                                          <option value="Laki - Laki" {{ old('jenis_kelamin') == "Laki - Laki" ? 'selected' : null }}>Laki - Laki</option>
+                                          <option value="Perempuan" {{ old('jenis_kelamin') == "Perempuan" ? 'selected' : null }}>Perempuan</option>
                                       </select>
         
                                   </div>
@@ -67,7 +67,7 @@
                                 <div class="form-group">
                                   <h5>Kelas <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="kelas" class="form-control" required="">
+                                      <input type="text" name="kelas" class="form-control" required="" value="{{ old('kelas') }}">
 
                                       @error('kelas')
                                       <span class="text-danger">{{ $message }}</span>
@@ -86,8 +86,8 @@
                           
                                       <select name="jurusan"  required="" class="form-control">
                                           <option value="" selected="" disabled="" >Select Jurusan</option>
-                                          <option value="IPA">IPA</option>
-                                          <option value="IPS">IPS</option>
+                                          <option value="IPA" {{ old('jurusan') == "IPA" ? 'selected' : null }}>IPA</option>
+                                          <option value="IPS" {{ old('jurusan') == "IPS" ? 'selected' : null }}>IPS</option>
                                       </select>
         
                                   </div>
@@ -103,7 +103,7 @@
                                 <div class="form-group">
                                   <h5>Nama wali <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="nama_wali" class="form-control" required="">
+                                      <input type="text" name="nama_wali" class="form-control" required="" value="{{ old('nama_wali') }}">
 
                                       @error('nama_wali')
                                         <span class="text-danger">{{ $message }}</span>
@@ -117,11 +117,11 @@
                                <div class="col-md-6">
 
                                 <div class="form-group">
-                                  <h5>Penghasilan wali <span class="text-danger">*</span></h5>
+                                  <h5>Pekerjaan wali <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="penghasilan_wali" class="form-control" required="">
+                                      <input type="text" name="pekerjaan_wali" class="form-control" required="" value="{{ old('penghasilan_wali') }}">
 
-                                      @error('penghasilan_wali')
+                                      @error('pekerjaan_wali')
                                       <span class="text-danger">{{ $message }}</span>
                                     @enderror
 

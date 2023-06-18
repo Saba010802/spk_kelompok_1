@@ -67,11 +67,12 @@
                     </table>
 
                     @php
-                        $mapel = App\Models\SchoolSubject::all();
-                        $totalMapel = count($mapel);
+                        // $mapel = App\Models\SchoolSubject::all();
+                        // $totalMapel = count($mapel);
                         $NilaiMapel = App\Models\NilaiSiswa::select('nilai_mapel')->where('siswa_id', $detail->siswa_id)->sum('nilai_mapel');
 
                         $nilaiKeaktifan = App\Models\NilaiSiswa::select('nilai_keaktifan')->where('siswa_id', $detail->siswa_id)->sum('nilai_keaktifan');
+                        $totalMapel = App\Models\NilaiSiswa::select('subject_id')->where('siswa_id', $detail->siswa_id)->count('subject_id');
                     @endphp
 
                     <div class="with-border">

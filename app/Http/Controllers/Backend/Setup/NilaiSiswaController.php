@@ -35,6 +35,7 @@ class NilaiSiswaController extends Controller
 
     public function StoreNilai(Request $request)
     {
+        //dd($request);
         $Jmlmapel = count($request->subject_id);
         if ($Jmlmapel != Null)
         {
@@ -67,6 +68,58 @@ class NilaiSiswaController extends Controller
 
     public function EditNilai($siswa_id)
     {
-        return view('backend.setup.nilai_siswa.edit_nilai');
+        $data['editData'] = NilaiSiswa::where('siswa_id', $siswa_id)->orderBy('subject_id', 'asc')->get();
+        //dd($data);
+        $data['siswa'] = Siswa::all();
+        $data['mapel'] = SchoolSubject::all();
+        return view('backend.setup.nilai_siswa.edit_nilai', $data);
+    }
+
+    public function UpdateNilai(Request $request, $siswa_id)
+    {
+        if ($request->subject_id == null) {
+            $notification = array(
+                'message' => 'Maaf, Tidak Ada Mata Pelajaran Yang Dipilih',
+                'alert-type' => 'error',
+            );
+
+            return redirect()->route('nilai.siswa.edit', $siswa_id)->with($notification);
+        }
+        else {
+
+            $Jmlmapel = count($request->subject_id);
+            NilaiSiswa::where('siswa_id', $siswa_id)->delete();
+
+            for ($i = 0; $i < $Jmlmapel; $i++) {
+                $data = new NilaiSiswa();
+                $data->siswa_id = $request->siswa_id;
+                $data->subject_id = $request->subject_id[$i];
+                $data->nilai_mapel = $request->nilai_mapel[$i];
+                $data->nilai_keaktifan = $request->nilai_keaktifan[$i];
+                $data->save();
+            } // end for loop
+
+        }  //end else
+
+        $notification = array(
+            'message' => 'Data Nilai Updated Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('nilai.siswa.view')->with($notification);
+    }
+
+    public function DeleteNilai($siswa_id)
+    {
+
+        NilaiSiswa::where('siswa_id', $siswa_id)->delete();
+        //dd($data);
+
+        $notification = array(
+            'message' => 'Data Nilai Deleted Successfully',
+            'alert-type' => 'info',
+        );
+
+        return redirect()->route('nilai.siswa.view')->with($notification);
     }
 }

@@ -30,7 +30,7 @@
                                 <div class="form-group">
                                   <h5>Nama kriteria <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="kriteria" class="form-control" required="">
+                                      <input type="text" name="kriteria" class="form-control" required="" value="{{ old('kriteria') }}">
 
                                     @error('kriteria')
                                       <span class="text-danger">{{ $message }}</span>
@@ -46,7 +46,7 @@
                                 <div class="form-group">
                                   <h5>Bobot <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="bobot" class="form-control" required="">
+                                      <input type="text" name="bobot" class="form-control" required="" value="{{ old('bobot') }}">
 
                                     @error('bobot')
                                       <span class="text-danger">{{ $message }}</span>

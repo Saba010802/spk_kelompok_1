@@ -2,6 +2,11 @@
 
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
+
+
+
 
 
 <div class="content-wrapper">
@@ -20,7 +25,7 @@
                <div class="box-body">
                  <div class="row">
                    <div class="col">
-                       <form method="POST" action="{{ route('store.nilai.siswa') }}">
+                       <form id="formNilai" method="POST" action="{{ route('store.nilai.siswa') }}">
                         @csrf
                          <div class="row">
                            <div class="col-12">	
@@ -34,7 +39,7 @@
                                         <option value="" selected="" disabled="" >Select Nama siswa</option>
                                         @foreach ($siswa as $data)
 
-                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->nama }} - {{ $data->jurusan}}</option>
 
                                         @endforeach
                                     </select>
@@ -52,11 +57,9 @@
                                             <select name="subject_id[]"  required="" class="form-control">
                                                 <option value="" selected="" disabled="" >Select Mata pelajaran</option>
                                                 @foreach ($mapel as $pelajaran)
-        
-                                                <option value="{{ $pelajaran->id }}">{{ $pelajaran->name }}</option>
-        
+                                                <option value="{{ $pelajaran->id }}" {{ old('subject_id') == $pelajaran->id  ? 'selected' : null}}>{{ $pelajaran->name }}</option>
                                                 @endforeach
-                                            </select>
+                                            </select>   
                                         
                                         </div>
                                     </div> {{-- end form group --}}
@@ -67,7 +70,7 @@
                                     <div class="form-group">
                                         <h5>Nilai Mata pelajaran <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="nilai_mapel[]" class="form-control">
+                                            <input type="text" id="nilai_mapel" required name="nilai_mapel[]" class="form-control" value="{{ old('nilai_mapel') }}">
                                         </div>
                                         
                                     </div>  
@@ -77,9 +80,9 @@
                                     <div class="form-group">
                                         <h5>Nilai Keaktifan <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="nilai_keaktifan[]" class="form-control">
+                                            <input type="text" id="nilai_keaktifan" required name="nilai_keaktifan[]" class="form-control" value="{{ old('nilai_keaktifan') }}">
                                         </div>
-                                        
+
                                     </div>  
                                 </div> {{-- end col md 3 --}}
 
@@ -93,7 +96,8 @@
                                <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit" >
                                <a href="{{ route('nilai.siswa.view') }}" class="btn btn-rounded btn-primary mb-5">Back</a>
                            </div>
-                       </form>
+
+                        </form> {{--end formNilai --}}
    
                    </div>
                    <!-- /.col -->
@@ -114,62 +118,71 @@
 <div style="visibility: hidden;">
     <div class="whole_extra_item_add" id="whole_extra_item_add">
         <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
-            <div class="form-row">
+                <div class="form-row">
 
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <h5>Mata pelajaran <span class="text-danger">*</span></h5>
-                        <div class="controls">
-                            <select name="subject_id[]"  required="" class="form-control">
-                                <option value="" selected="" disabled="" >Select Mata pelajaran</option>
-                                @foreach ($mapel as $pelajaran)
-
-                                <option value="{{ $pelajaran->id }}">{{ $pelajaran->name }}</option>
-
-                                @endforeach
-                            </select>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h5>Mata pelajaran <span class="text-danger">*</span></h5>
+                            <div class="controls">
+                                <select name="subject_id[]"  required="" class="form-control">
+                                    <option value="" selected="" disabled="" >Select Mata pelajaran</option>
+                                    @foreach ($mapel as $pelajaran)
+                                    <option value="{{ $pelajaran->id }}" {{ old('subject_id') == $pelajaran->id  ? 'selected' : null}}>{{ $pelajaran->name }}</option>
+                                    @endforeach
+                                </select>
+    
+                                @error('subject_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            
+                            </div>
+                        </div> {{-- end form group --}}
                         
-                        </div>
-                    </div> {{-- end form group --}}
-                    
-                </div> {{-- end col md 4 --}}
-
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <h5>Nilai Mata pelajaran <span class="text-danger">*</span></h5>
-                        <div class="controls">
-                            <input type="text" name="nilai_mapel[]" class="form-control">
-                        </div>
-                        
-                    </div>  
-                </div> {{-- end col md 3 --}}
-
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <h5>Nilai Keaktifan <span class="text-danger">*</span></h5>
-                        <div class="controls">
-                            <input type="text" name="nilai_keaktifan[]" class="form-control">
-                        </div>
-                        
-                    </div>  
-                </div> {{-- end col md 3 --}}
-
-
-                <div class="col-md-2" style="padding-top: 25px;">
-                    <span class="btn btn-success addeventmore">
-                        <i class="fa fa-plus-circle"></i>
-                    </span>
-                    <span class="btn btn-danger removeeventmore">
-                        <i class="fa fa-minus-circle"></i>
-                    </span>
-                </div> {{-- end col md 2 --}}
-
-            </div>
+                    </div> {{-- end col md 4 --}}
+    
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <h5>Nilai Mata pelajaran <span class="text-danger">*</span></h5>
+                            <div class="controls">
+                                <input type="text" name="nilai_mapel[]" required class="form-control" value="{{ old('nilai_mapel') }}">
+    
+                            </div>
+                            
+                        </div>  
+                    </div> {{-- end col md 3 --}}
+    
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <h5>Nilai Keaktifan <span class="text-danger">*</span></h5>
+                            <div class="controls">
+                                <input type="text" name="nilai_keaktifan[]" required class="form-control" value="{{ old('nilai_keaktifan') }}">
+    
+                            </div>
+                            
+                        </div>  
+                    </div> {{-- end col md 3 --}}
+    
+    
+                    <div class="col-md-2" style="padding-top: 25px;">
+                        <span class="btn btn-success addeventmore">
+                            <i class="fa fa-plus-circle"></i>
+                        </span>
+                        <span class="btn btn-danger removeeventmore">
+                            <i class="fa fa-minus-circle"></i>
+                        </span>
+                    </div> {{-- end col md 2 --}}
+    
+                </div>
         </div>
     </div>
 </div>
 
+{{-- validation script --}}
+<script>
+   $("#formNilai").validate();
+</script>
 
+{{-- button plus script --}}
 <script type="text/javascript">
     $(document).ready(function(){
         var counter = 0;

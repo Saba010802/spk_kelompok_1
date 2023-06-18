@@ -103,11 +103,11 @@
                                <div class="col-md-6">
 
                                 <div class="form-group">
-                                  <h5>Penghasilan wali <span class="text-danger">*</span></h5>
+                                  <h5>Pekerjaan wali <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="penghasilan_wali" class="form-control" required="" value="{{ $alldata->penghasilan_wali}}">
+                                      <input type="text" name="pekerjaan_wali" class="form-control" required="" value="{{ $alldata->pekerjaan_wali}}">
 
-                                      @error('penghasilan_wali')
+                                      @error('pekerjaan_wali')
                                       <span class="text-danger">{{ $message }}</span>
                                     @enderror
 

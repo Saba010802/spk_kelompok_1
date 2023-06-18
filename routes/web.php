@@ -103,6 +103,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/nilai/siswa/store', [NilaiSiswaController::class, 'StoreNilai'])->name('store.nilai.siswa');
         Route::get('/nilai/siswa/edit/{siswa_id}', [NilaiSiswaController::class, 'EditNilai'])->name('nilai.siswa.edit');
         Route::get('/nilai/siswa/details/{siswa_id}', [NilaiSiswaController::class, 'DetailsNilai'])->name('nilai.siswa.details');
+        Route::post('/nilai/siswa/update/{siswa_id}', [NilaiSiswaController::class, 'UpdateNilai'])->name('update.nilai.siswa');
+        Route::get('/nilai/siswa/delete/{siswa_id}', [NilaiSiswaController::class, 'DeleteNilai'])->name('nilai.siswa.delete');
 
         //siswa prestasi 
         Route::get('/siswa/prestasi/view', [NilaiSiswaController::class, 'ViewSiswaPrestasi'])->name('siswa.view.prestasi');

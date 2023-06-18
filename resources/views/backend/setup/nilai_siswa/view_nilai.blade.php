@@ -54,7 +54,7 @@
                           <td>
                             <a href="{{ route('nilai.siswa.edit',$nilai->siswa_id) }}" class="btn btn-info">Edit</a>
                             <a href="{{ route('nilai.siswa.details',$nilai->siswa_id) }}" class="btn btn-primary">Detail</a>
-                            <a href="{{ route('data.siswa.delete',$nilai->siswa_id) }}" class="btn btn-danger" id="delete">Delete</a>
+                            <a href="{{ route('nilai.siswa.delete',$nilai->siswa_id) }}" class="btn btn-danger" id="delete">Delete</a>
                           </td>
                           
                       </tr>

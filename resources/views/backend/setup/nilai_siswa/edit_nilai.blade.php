@@ -13,14 +13,14 @@
             <!-- Basic Forms -->
              <div class="box">
                <div class="box-header with-border">
-                 <h4 class="box-title">Add nilai siswa </h4>
+                 <h4 class="box-title">Edit nilai siswa </h4>
                 
                </div>
                <!-- /.box-header -->
                <div class="box-body">
                  <div class="row">
                    <div class="col">
-                       <form method="POST" action="{{ route('store.nilai.siswa') }}">
+                       <form method="POST" action="{{ route('update.nilai.siswa', $editData[0]->siswa_id) }}">
                         @csrf
                          <div class="row">
                            <div class="col-12">	
@@ -30,11 +30,11 @@
                             <div class="form-group">
                                 <h5>Nama <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <select name="siswa_id"  required="" class="form-control">
-                                        <option value="" selected="" disabled="" >Select Nama siswa</option>
-                                        @foreach ($siswa as $data)
+                                    <select name="siswa_id"  required="" class="form-control" >
+                                        <option value="" selected=""  >Select Nama siswa</option>
+                                        @foreach ($siswa as $murid)
 
-                                        <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                        <option value="{{ $murid->id }}" {{ ($editData['0']->siswa_id == $murid->id)? "selected" : "" }}>{{ $murid->nama }}</option>
 
                                         @endforeach
                                     </select>
@@ -44,16 +44,18 @@
                             {{-- end form group --}}
                          
 
+                        @foreach ($editData as $data)
+                                
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <h5>Mata pelajaran <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <select name="subject_id[]"  required="" class="form-control">
+                                            <select name="subject_id[]"  required="" class="form-control" >
                                                 <option value="" selected="" disabled="" >Select Mata pelajaran</option>
                                                 @foreach ($mapel as $pelajaran)
         
-                                                <option value="{{ $pelajaran->id }}">{{ $pelajaran->name }}</option>
+                                                <option value="{{ $pelajaran->id }}" {{ ($data->subject_id == $pelajaran->id ) ? "selected" : "" }}>{{ $pelajaran->name }}</option>
         
                                                 @endforeach
                                             </select>
@@ -67,7 +69,7 @@
                                     <div class="form-group">
                                         <h5>Nilai Mata pelajaran <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="nilai_mapel[]" class="form-control">
+                                            <input type="text" name="nilai_mapel[]" class="form-control" value="{{ $data->nilai_mapel }}">
                                         </div>
                                         
                                     </div>  
@@ -77,20 +79,24 @@
                                     <div class="form-group">
                                         <h5>Nilai Keaktifan <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="nilai_keaktifan[]" class="form-control">
+                                            <input type="text" name="nilai_keaktifan[]" class="form-control" value="{{ $data->nilai_keaktifan }}">
                                         </div>
                                         
                                     </div>  
                                 </div> {{-- end col md 3 --}}
-
+            
                                 <div class="col-md-2" style="padding-top: 25px;">
                                     <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span>
                                 </div> {{-- end col md 2 --}}
                             </div>  {{-- end row --}}
+
+                        @endforeach
                         </div> {{-- end add_item --}}
 
+
+
                            <div class="text-xs-right">
-                               <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit" >
+                               <input type="submit" class="btn btn-rounded btn-info mb-5" value="Update" >
                                <a href="{{ route('nilai.siswa.view') }}" class="btn btn-rounded btn-primary mb-5">Back</a>
                            </div>
                        </form>

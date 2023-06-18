@@ -20,7 +20,7 @@ class CreateSiswasTable extends Migration
             $table->string('kelas');
             $table->string('jurusan');
             $table->string('nama_wali');
-            $table->double('penghasilan_wali');
+            $table->string('pekerjaan_wali');
             $table->timestamps();
         });
     }

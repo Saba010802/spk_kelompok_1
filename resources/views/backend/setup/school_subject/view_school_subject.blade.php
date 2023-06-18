@@ -31,7 +31,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title"> Mata Pelajaran</h3>
-                <a href="{{ route('school.subject.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add Subject </a>
+                <a href="{{ route('school.subject.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add Matpel </a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
