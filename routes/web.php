@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\Setup\BobotMetodeController;
 use App\Http\Controllers\Backend\Setup\NilaiSiswaController;
 use App\Http\Controllers\Backend\Setup\SiswaController;
+use App\Http\Controllers\Backend\Setup\SiswaPrestasiController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -107,7 +108,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/nilai/siswa/delete/{siswa_id}', [NilaiSiswaController::class, 'DeleteNilai'])->name('nilai.siswa.delete');
 
         //siswa prestasi 
-        Route::get('/siswa/prestasi/view', [NilaiSiswaController::class, 'ViewSiswaPrestasi'])->name('siswa.view.prestasi');
+        Route::get('/siswa/prestasi/view', [SiswaPrestasiController::class, 'ViewSiswaPrestasi'])->name('siswa.view.prestasi');
+        Route::get('/siswa/prestasi/cari', [SiswaPrestasiController::class, 'cariSiswa']);
 
 
 

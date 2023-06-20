@@ -30,8 +30,8 @@
                             <div class="form-group">
                                 <h5>Nama <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <select name="siswa_id"  required="" class="form-control" >
-                                        <option value="" selected=""  >Select Nama siswa</option>
+                                    <select name="siswa_id"  required="" class="form-control" type="hidden" disabled>
+                                        <option type="hidden" value="" selected=""  >Select Nama siswa</option>
                                         @foreach ($siswa as $murid)
 
                                         <option value="{{ $murid->id }}" {{ ($editData['0']->siswa_id == $murid->id)? "selected" : "" }}>{{ $murid->nama }}</option>
@@ -51,13 +51,14 @@
                                     <div class="form-group">
                                         <h5>Mata pelajaran <span class="text-danger">*</span></h5>
                                         <div class="controls">
+                                            
                                             <select name="subject_id[]"  required="" class="form-control" >
-                                                <option value="" selected="" disabled="" >Select Mata pelajaran</option>
-                                                @foreach ($mapel as $pelajaran)
+                                                <option type="hidden" value="" selected="" disabled="" >Select Mata pelajaran</option>
+                                                 @foreach ($mapel as $pelajaran)
         
-                                                <option value="{{ $pelajaran->id }}" {{ ($data->subject_id == $pelajaran->id ) ? "selected" : "" }}>{{ $pelajaran->name }}</option>
+                                                 <option value="{{ $pelajaran->id }}" {{ ($data->subject_id == $pelajaran->id ) ? "selected" : "" }}>{{ $pelajaran->name }}</option> 
         
-                                                @endforeach
+                                                @endforeach 
                                             </select>
                                         
                                         </div>

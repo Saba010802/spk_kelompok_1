@@ -11,12 +11,7 @@ use Illuminate\Http\Request;
 
 class NilaiSiswaController extends Controller
 {
-    //siswa prestasi
-    public function ViewSiswaPrestasi()
-    {
-        return view('backend.setup.siswa_prestasi.view_siswa_prestasi');
-    }
-
+    
     public function ViewNilai()
     {
         //$data['Alldata'] = NilaiSiswa::all();
@@ -35,6 +30,7 @@ class NilaiSiswaController extends Controller
 
     public function StoreNilai(Request $request)
     {
+        
         //dd($request);
         $Jmlmapel = count($request->subject_id);
         if ($Jmlmapel != Null)
@@ -48,6 +44,13 @@ class NilaiSiswaController extends Controller
                 $data->nilai_keaktifan = $request->nilai_keaktifan[$i];
                 $data->save();
             }  //end for
+
+                // $nilaiMapel = NilaiSiswa::select('nilai_mapel');
+                // $nilaiAktif = NilaiSiswa::select('nilai_keaktifan')->where('siswa_id', $request->siswa_id)->sum('nilai_keaktifan');
+                // //$rataMpl = $nilaiMapel/$Jmlmapel;
+                // //$rataAktif = $nilaiAktif/$Jmlmapel;
+                // dd($nilaiMapel);
+
         }  // end if
 
         $notification = array(
@@ -97,6 +100,7 @@ class NilaiSiswaController extends Controller
                 $data->nilai_mapel = $request->nilai_mapel[$i];
                 $data->nilai_keaktifan = $request->nilai_keaktifan[$i];
                 $data->save();
+                //dd($data);
             } // end for loop
 
         }  //end else
