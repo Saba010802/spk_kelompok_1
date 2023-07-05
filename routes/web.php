@@ -79,6 +79,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/password/update', [ProfileController::class, 'PasswordUpdate'])->name('password.update');
     });
 
+    Route::prefix('prestasi')->group(function() {
+        Route::get('/siswa/view/ipa', [SiswaPrestasiController::class, 'SiswaPrestasiIpa'])->name('siswa.view.prestasi.ipa');
+        Route::get('/siswa/view/ips', [SiswaPrestasiController::class, 'SiswaPrestasiIps'])->name('siswa.view.prestasi.ips');
+
+    });
+
     //All Route Student Class
     Route::prefix('setup')->group(function () {
         // BOBOT METODE

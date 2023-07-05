@@ -74,7 +74,7 @@ $route = Route::current()->getName();
             <li><a href="{{ route('siswa') }}"><i class="ti-more"></i>Siswa</a></li>
             <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Mata Pelajaran </a></li>
             <li><a href="{{ route('nilai.siswa.view') }}"><i class="ti-more"></i>Nilai siswa</a></li>
-            <li><a href="{{ route('siswa.view.prestasi') }}"><i class="ti-more"></i>Siswa Prestasi</a></li> 
+            {{-- <li><a href="{{ route('siswa.view.prestasi') }}"><i class="ti-more"></i>Siswa Prestasi</a></li>  --}}
             
             {{-- <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
             <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
@@ -86,6 +86,20 @@ $route = Route::current()->getName();
             <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>Mata Pelajaran </a></li>
             <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject </a></li>
             <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation </a></li> --}}
+
+          </ul>
+        </li>
+
+        <li class="treeview {{ ($prefix == '/prestasi')? 'active':'' }}">
+          <a href="#">
+            <i data-feather="award"></i> <span>Siswa Prestasi</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('siswa.view.prestasi.ipa') }}"><i class="ti-more"></i>IPA</a></li>
+            <li><a href="{{ route('siswa.view.prestasi.ips') }}"><i class="ti-more"></i>IPS</a></li>
 
           </ul>
         </li>
