@@ -11,7 +11,6 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-            
               </div>
           </div>
       </div>
@@ -26,7 +25,7 @@
 
        <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"> </h3>
+            <h3 class="box-title">IPA </h3>
 
             
           </div>
@@ -42,7 +41,7 @@
                           {{-- <th>Hasil Perhitungan</th> --}}
                           <th>Status</th>
                           
-                          {{-- <th width="25%">Action</th> --}}
+                          <th width="10%">Action</th>
                           
                       </tr>
                   </thead>
@@ -59,10 +58,10 @@
                           @else
                           <td class="text-danger">{{ $siswa->status }}</td>
                           @endif
-                          {{-- <td>
-                            <a href="{{ route('data.siswa.edit',$siswa->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ route('data.siswa.delete',$siswa->id) }}" class="btn btn-danger" id="delete">Delete</a>
-                          </td> --}}
+                          <td>
+                            {{-- <a href="{{ route('data.siswa.edit',$siswa->id) }}" class="btn btn-info">Edit</a>  --}}
+                            <a href="{{ route('prestasi.ipa.print',$siswa->id) }} " class="btn btn-danger" >Print</a>
+                          </td>
                           
                       </tr>
                     @endforeach

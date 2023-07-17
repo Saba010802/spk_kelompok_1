@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\BobotMetode;
 use App\Models\Hasil;
 use App\Models\NilaiSiswa;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use niklasravnsborg\LaravelPdf\Facades\Pdf;
 
 class SiswaPrestasiController extends Controller
 {
@@ -105,6 +107,15 @@ class SiswaPrestasiController extends Controller
 
       }
 
+      public function IpaPrint($id)
+      {
+         $data['details'] = Hasil::where('id', $id)->get();
+         //dd($data);
+         $pdf = Pdf::loadView('backend.siswa_prestasi.ipa_pdf', $data);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('siswa_prestasi_IPA.pdf');
+      }
+
    public function SiswaPrestasiIps()
    {
       DB::table('hasils')->truncate();
@@ -197,6 +208,18 @@ class SiswaPrestasiController extends Controller
          return view('backend.siswa_prestasi.prestasi_ips', compact('data'));  
    }
 
+   public function IpsPrint($id)
+   {
+      $data['details'] = Hasil::where('id', $id)->get();
+
+      $pdf = Pdf::loadView('backend.siswa_prestasi.ips_pdf', $data);
+      $pdf->SetProtection(['copy', 'print'], '', 'pass');
+      return $pdf->stream('siswa_prestasi_IPS.pdf');
+
+   }
+    
+   
+   //SISWA PRESTASI SET UP MANAGEMENT
     public function ViewSiswaPrestasi()
     {
         DB::table('hasils')->truncate();

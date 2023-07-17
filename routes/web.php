@@ -79,9 +79,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/password/update', [ProfileController::class, 'PasswordUpdate'])->name('password.update');
     });
 
+    //SISWA PRESTASI IPA IPS
     Route::prefix('prestasi')->group(function() {
         Route::get('/siswa/view/ipa', [SiswaPrestasiController::class, 'SiswaPrestasiIpa'])->name('siswa.view.prestasi.ipa');
+        Route::get('/siswa/ipa/print/{id}', [SiswaPrestasiController::class, 'IpaPrint'])->name('prestasi.ipa.print');
         Route::get('/siswa/view/ips', [SiswaPrestasiController::class, 'SiswaPrestasiIps'])->name('siswa.view.prestasi.ips');
+        Route::get('/siswa/ips/print/{id}', [SiswaPrestasiController::class, 'IpsPrint'])->name('prestasi.ips.print');
 
     });
 
