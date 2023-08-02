@@ -92,9 +92,9 @@
                               <div class="col-md-6">
 
                                 <div class="form-group">
-                                  <h5>Nama wali <span class="text-danger">*</span></h5>
+                                  <h5>Nama Ayah <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="nama_wali" class="form-control" required="" value="{{ $alldata->nama_wali}}">
+                                      <input type="text" name="nama_ayah" class="form-control" required="" value="{{ $alldata->nama_ayah}}">
                                   </div>
                                 </div>
 
@@ -103,11 +103,22 @@
                                <div class="col-md-6">
 
                                 <div class="form-group">
-                                  <h5>Pekerjaan wali <span class="text-danger">*</span></h5>
+                                  <h5>Pekerjaan Ayah <span class="text-danger">*</span></h5>
                                   <div class="controls">
-                                      <input type="text" name="pekerjaan_wali" class="form-control" required="" value="{{ $alldata->pekerjaan_wali}}">
 
-                                      @error('pekerjaan_wali')
+                                    <select name="pekerjaan_ayah"  required="" class="form-control">
+                                      <option value="" selected="" disabled="" >Select pekerjaan</option>
+                                      <option value="20" {{ ($alldata->pekerjaan_ayah == '20')? 'selected': '' }}>PNS</option>
+                                      <option value="50" {{ ($alldata->pekerjaan_ayah == '50')? 'selected': '' }}>Karyawan</option>
+                                      <option value="79" {{ ($alldata->pekerjaan_ayah == '79')? 'selected': '' }}>Nelayan</option>
+                                      <option value="100" {{ ($alldata->pekerjaan_ayah == '100')? 'selected': '' }}>Buruh</option>
+                                      <option value="60" {{ ($alldata->pekerjaan_ayah == '60')? 'selected': '' }}>Pedagang</option>
+                                      <option value="30" {{ ($alldata->pekerjaan_ayah == '30')? 'selected': '' }}>Penambak Ikan</option>
+                                      <option value="0" {{ ($alldata->pekerjaan_ayah == '0')? 'selected': '' }}>Tidak Bekerja</option>
+                                      <option value="70" {{ ($alldata->pekerjaan_ayah == '70')? 'selected': '' }}>Tani</option>
+                                   </select>
+
+                                      @error('pekerjaan_ayah')
                                       <span class="text-danger">{{ $message }}</span>
                                     @enderror
 
@@ -117,6 +128,74 @@
                                </div> {{--end col md 6 --}}
 
                              </div> {{--end 3nd row --}}   
+
+                             <div class="row"> {{--first 4nd row --}}
+                              <div class="col-md-6">
+
+                                <div class="form-group">
+                                  <h5>Nama Ibu <span class="text-danger">*</span></h5>
+                                  <div class="controls">
+                                      <input type="text" name="nama_ibu" class="form-control" required="" value="{{ $alldata->nama_ibu}}">
+                                  </div>
+                                </div>
+
+                               </div> {{--end col md 6 --}}
+
+                               <div class="col-md-6">
+
+                                <div class="form-group">
+                                  <h5>Pekerjaan Ibu <span class="text-danger">*</span></h5>
+                                  <div class="controls">
+
+                                    <select name="pekerjaan_ibu"  required="" class="form-control">
+                                      <option value="" selected="" disabled="" >Select pekerjaan</option>
+                                      <option value="20" {{ ($alldata->pekerjaan_ibu == '20')? 'selected': '' }}>PNS</option>
+                                      <option value="50" {{ ($alldata->pekerjaan_ibu == '50')? 'selected': '' }}>Karyawan</option>
+                                      <option value="70" {{ ($alldata->pekerjaan_ibu == '70')? 'selected': '' }}>Petani</option>
+                                      <option value="79" {{ ($alldata->pekerjaan_ibu == '79')? 'selected': '' }}>Nelayan</option>
+                                      <option value="100" {{ ($alldata->pekerjaan_ibu == '100')? 'selected': '' }}>Buruh</option>
+                                      <option value="60" {{ ($alldata->pekerjaan_ibu == '60')? 'selected': '' }}>Pedagang</option>
+                                      <option value="30" {{ ($alldata->pekerjaan_ibu == '30')? 'selected': '' }}>Penambak Ikan</option>
+                                      <option value="0" {{ ($alldata->pekerjaan_ibu == '0')? 'selected': '' }}>Tidak Bekerja</option>
+                                   </select>
+
+                                      @error('pekerjaan_ibu')
+                                      <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+
+                                  </div>
+                                </div>
+
+                               </div> {{--end col md 6 --}}
+
+                             </div> {{--end 4nd row --}} 
+
+                             {{--first 5nd row foto --}} 
+                             <div class="row">
+
+                              <div class="col-md-6">
+
+                               <div class="form-group">
+                                   <h5>Lampiran <span class="text-danger">*</span></h5>
+                                   <div class="controls">
+                                       <input type="file" name="image" id="image" class="form-control" > 
+                                   </div>
+                                   
+                               </div>
+                             </div> {{-- End md-6 form input --}}
+
+                             <div class="class col-md-6">
+                               <div class="form-group">
+                                 <div class="controls">
+                                     <img id="showImage" src="{{ (!empty($user->image)) ? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}" 
+                                     style="width: 100px; width: 100px; boarder: 1px solid #000000">
+                                 </div>
+                                 
+                               </div>
+                             </div> {{-- end md-6 show foto --}}
+
+
+                             </div>  {{--end 5nd row --}} 
 
                            <div class="text-xs-right">
                                <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit" >

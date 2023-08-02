@@ -54,7 +54,7 @@
                           <th width="5%">No</th>
                           <th>Name</th>
                           <th>jurusan</th>
-                          <th>Hasil Perhitungan</th>
+                          {{-- <th>Hasil Perhitungan</th> --}}
                           <th>Status</th>
                           
                           {{-- <th width="25%">Action</th> --}}
@@ -67,7 +67,7 @@
                           <td>{{ $key+1 }}</td>
                           <td>{{ $siswa->nama }}</td>
                           <td>{{ $siswa->jurusan }}</td>
-                          <td>{{ $siswa->hasil_hitung }}</td>
+                          {{-- <td>{{ $siswa->hasil_hitung }}</td> --}}
                           @if($siswa->status=="Terpilih Menjadi Siswa Berprestasi")
                         
                           <td class="text-success">{{ $siswa->status }}</td>
