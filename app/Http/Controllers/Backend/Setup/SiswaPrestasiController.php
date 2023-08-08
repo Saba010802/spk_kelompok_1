@@ -41,7 +41,7 @@ class SiswaPrestasiController extends Controller
                          $hasil_pekerjaan=70*$bt->bobot;
                       }  
                       if($nilai->pekerjaan_wali=="Nelayan"){
-                         $hasil_pekerjaan=70*$bt->bobot;
+                         $hasil_pekerjaan=79*$bt->bobot;
                       }  
                       if($nilai->pekerjaan_wali=="Buruh"){
                          $hasil_pekerjaan=100*$bt->bobot;
@@ -143,7 +143,7 @@ class SiswaPrestasiController extends Controller
                          $hasil_pekerjaan=70*$bt->bobot;
                       }  
                       if($nilai->pekerjaan_wali=="Nelayan"){
-                         $hasil_pekerjaan=70*$bt->bobot;
+                         $hasil_pekerjaan=79*$bt->bobot;
                       }  
                       if($nilai->pekerjaan_wali=="Buruh"){
                          $hasil_pekerjaan=100*$bt->bobot;

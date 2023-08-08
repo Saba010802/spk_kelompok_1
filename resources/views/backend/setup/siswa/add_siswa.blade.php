@@ -2,6 +2,9 @@
 
 @section('admin')
 
+{{-- jQuery Ajax CDN --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 <div class="content-wrapper">
     <div class="container-full">
@@ -195,21 +198,21 @@
                                 <div class="form-group">
                                     <h5>Lampiran <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <input type="file" name="image" id="image" class="form-control" > 
+                                        <input type="file" name="lampiran" id="lampiran" class="form-control" > 
                                     </div>
                                     
                                 </div>
-                              </div> {{-- End md-6 form input --}}
+                              </div> {{-- End md-6 form input --}} 
 
                               <div class="class col-md-6">
                                 <div class="form-group">
                                   <div class="controls">
-                                      <img id="showImage" src="{{ (!empty($user->image)) ? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}" 
+                                      <img id="showLampiran" src="{{ (!empty($siswa->lampiran)) ? url('upload/lampiran_images/'.$siswa->lampiran) : url('upload/no_image.jpg') }}" 
                                       style="width: 100px; width: 100px; boarder: 1px solid #000000">
                                   </div>
                                   
                                 </div>
-                              </div> {{-- end md-6 show foto --}}
+                            </div>   {{-- end md-6 show foto --}}
 
 
                               </div>  {{--end 5nd row --}}                            
@@ -236,5 +239,22 @@
     </div>
 </div>
 
+
+{{-- Show Change Image JS --}}
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $('#lampiran').change(function(e){
+      var reader = new FileReader();
+      reader.onload = function(e){
+        $('#showLampiran').attr('src',e.target.result);
+      }
+      reader.readAsDataURL(e.target.files['0']);
+  
+    });
+  
+  });
+  
+  </script>
 
 @endsection

@@ -29,7 +29,11 @@ class SiswaController extends Controller
             'penghasilan_wali.numeric' => 'Masukan Angka!',
         ]);
 
-        if($request->pekerjaan_ayah>$request->pekerjaan_ibu)
+        if($request->pekerjaan_ibu==0)
+        {
+            $pekerjaan=$request->pekerjaan_ayah;
+        }
+        elseif($request->pekerjaan_ayah>$request->pekerjaan_ibu)
         {
             $pekerjaan=$request->pekerjaan_ibu;
         }
@@ -76,6 +80,14 @@ class SiswaController extends Controller
         $data->nama_ibu = $request->nama_ibu;
         $data->pekerjaan_wali = $kerja_wali;
 
+        if ($request->file('lampiran')) {
+            $file = $request->file('lampiran');
+            @unlink(public_path('upload/lampiran_images/' . $data->lampiran));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/lampiran_images'), $filename);
+            $data['lampiran'] = $filename;
+        }
+
         $data->save();
 
         $notification = array(
@@ -101,7 +113,11 @@ class SiswaController extends Controller
             'penghasilan_wali' => 'Masukan Angka!',
         ]);
 
-        if($request->pekerjaan_ayah>$request->pekerjaan_ibu)
+        if($request->pekerjaan_ibu==0)
+        {
+            $pekerjaan=$request->pekerjaan_ayah;
+        }
+        elseif($request->pekerjaan_ayah>$request->pekerjaan_ibu)
         {
             $pekerjaan=$request->pekerjaan_ibu;
         }
@@ -150,7 +166,14 @@ class SiswaController extends Controller
         $data->nama_ibu = $request->nama_ibu;
         $data->pekerjaan_wali = $kerja_wali;
         
-        
+        if ($request->file('lampiran')) {
+            $file = $request->file('lampiran');
+            @unlink(public_path('upload/lampiran_images/' . $data->lampiran));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/lampiran_images'), $filename);
+            $data['lampiran'] = $filename;
+        }
+
         $data->save();
 
         $notification = array(
