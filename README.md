@@ -39,7 +39,7 @@ User login pada aplikasi ini dibedakan menjadi 2 yaitu Admin dan operator, diman
 
  # Fitur Export File
 * Save PDF 
-* Save Microsoft Excel  
+  
 
  # Screenshoot App
   <img width="960" alt="dasboerd" src="https://github.com/susmiyantoferi/SI-Petani/assets/58883469/898301f1-186b-441e-b2b9-7c1a54fc2773">
