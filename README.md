@@ -6,6 +6,7 @@ User login pada aplikasi ini dibedakan menjadi 2 yaitu Admin dan operator, diman
    # Teknologi Yang digunakan :
    * Laravel 8
    * PostgresSQL 13
+   * Bootstrap
    
 #
       Sebelum Menajalankan, ikuti langkah-langkah sebagai berikut :
