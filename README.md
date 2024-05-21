@@ -25,9 +25,7 @@ User login pada aplikasi ini dibedakan menjadi 2 yaitu Admin dan operator, diman
 # Manage User 
  * view User (CRUD)
  * Manage User (CRUD)
-# Manage User 
- * view User (CRUD)
- * Manage User (CRUD)
+
 # Setup Management
  * Bobot (CRUD)
  * Siswa (CRUD)
