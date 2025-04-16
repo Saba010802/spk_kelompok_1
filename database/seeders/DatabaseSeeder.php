@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'usertype' => 'Admin',
-            'name' => 'Feri susmiyanto',
+            'name' => 'Grup 5',
             'email' => 'admin@admin.com',
             'password' => bcrypt('12345'),
-            'mobile' => '081829666',
+            'mobile' => '0812345',
             'address' => 'Indonesia',
             'gender' => 'Male',
             'role' => 'Admin',

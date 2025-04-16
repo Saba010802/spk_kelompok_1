@@ -16,7 +16,7 @@ $route = Route::current()->getName();
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
 						  {{-- <img src="{{ asset('backend/images/smancar.png') }}" alt="" style="width: 90px; width: 90px; "> --}}
-						  <h3><b>SMANCAR </b> </h3>
+						  <h3><b>PENENTUAN KRITERIA SISWA BERPRESTASI </b> </h3>
 					 </div>
 				</a>
 			</div>
