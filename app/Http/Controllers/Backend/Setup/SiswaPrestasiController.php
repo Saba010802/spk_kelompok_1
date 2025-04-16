@@ -30,6 +30,9 @@ class SiswaPrestasiController extends Controller
         $bobot_kerja=BobotMetode::where('kriteria','Pekerjaan wali')->get();
         //dd($nilai_siswa);
         foreach($nilai_siswa as $nilai){
+          $hasil_pekerjaan = 0;
+          $hasil_mapel = 0;
+         $hasil_keaktifan = 0;
             foreach($bobot_kerja as $bt){
                     if($nilai->pekerjaan_wali=="PNS"){
                         $hasil_pekerjaan=20*$bt->bobot;
@@ -132,6 +135,9 @@ class SiswaPrestasiController extends Controller
         $bobot_kerja=BobotMetode::where('kriteria','Pekerjaan wali')->get();
         //dd($nilai_siswa);
         foreach($nilai_siswa as $nilai){
+          $hasil_pekerjaan = 0;
+    $hasil_mapel = 0;
+    $hasil_keaktifan = 0;
             foreach($bobot_kerja as $bt){
                     if($nilai->pekerjaan_wali=="PNS"){
                         $hasil_pekerjaan=20*$bt->bobot;

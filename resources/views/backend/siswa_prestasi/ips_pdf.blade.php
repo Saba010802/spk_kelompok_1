@@ -33,15 +33,15 @@
       <td>
         <h2>
 
-          <?php $image_path = '/upload/logo_smancar.png'; ?>
+          <?php $image_path = '/upload/logo-smansa.png'; ?>
           <img src="{{ public_path().$image_path }}" width="200" height="150">
 
         </h2>
       </td>
       
-      <td><h2>SMA Negeri 1 Muncar</h2>
-        <p>Alamat : jl. Tapanrejo Kec. Muncar Kab. Banyuwangi</p>
-        <p><b> Siswa Prestasi IPS</b></p>
+      <<td><h2>SMA Negeri 1 Palu</h2>
+        <p>Alamat : jl. Gatot Subroto No. 70 Kec. Palu Timur Kota Palu</p>
+        <p><b> Siswa Prestasi IPA</b></p>
      </td>
     </tr>
 </table>
