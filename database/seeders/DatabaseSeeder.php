@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'usertype' => 'Admin',
-            'name' => 'Grup 5',
+            'name' => 'Sabaria',
             'email' => 'admin@admin.com',
             'password' => bcrypt('12345'),
-            'mobile' => '0812345',
+            'mobile' => '0812345678',
             'address' => 'Indonesia',
-            'gender' => 'Male',
+            'gender' => 'Female',
             'role' => 'Admin',
         ]);
     }

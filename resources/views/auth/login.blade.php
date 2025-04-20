@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>Grup 5 - Log in </title>
+    <title>Sabaria - Log in </title>
   
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
@@ -27,7 +27,7 @@
 				<div class="row justify-content-center no-gutters">
 					<div class="col-lg-4 col-md-5 col-12">
 						<div class="content-top-agile p-10">
-							<h2 class="text-white">PENENTUAN KRITERIA SISWA BERPRESTASI</h2>
+							<h2 class="text-white">PENENTUAN KRITERIA SISWA BERPRESTASI SMA NEGERI 4 PALU</h2>
 							<p class="text-white-50"></p>							
 						</div>
 						<div class="p-30 rounded30 box-shadowed b-2 b-dashed">

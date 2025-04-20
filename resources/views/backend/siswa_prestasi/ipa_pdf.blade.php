@@ -33,14 +33,14 @@
       <td>
         <h2>
 
-          <?php $image_path = '/upload/logo-smansa.png'; ?>
+          <?php $image_path = '/upload/logo-smanpat.png'; ?>
           <img src="{{ public_path().$image_path }}" width="200" height="150">
 
         </h2>
       </td>
       
-      <td><h2>SMA Negeri 1 Palu</h2>
-        <p>Alamat : jl. Gatot Subroto No. 70 Kec. Palu Timur Kota Palu</p>
+      <td><h2>SMA Negeri 4 Palu</h2>
+        <p>Alamat : jl. Mokolembake No. 10 Kec. Palu Barat Kota Palu</p>
         <p><b> Siswa Prestasi IPA</b></p>
      </td>
     </tr>

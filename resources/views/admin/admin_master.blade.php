@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-    <title>PENENTUAN KRITERIA SISWA BERPRESTASI</title>
+    <title>PENENTUAN KRITERIA SISWA BERPRESTASI SMA NEGERI 4 PALU</title>
     
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
